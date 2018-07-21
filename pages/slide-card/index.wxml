@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<div class="container">
+  <section class="card-container">
+      <article class="card card-place-holder">
+          卡片已见底
+      </article>
+      
+      <article class="card"
+          wx:for="{{slideList}}"
+          wx:key="{{item.id}}"
+          animation="{{item.animationData}}"
+          bindtouchmove="touchmove"
+          bindtouchend="touchend"
+          bindtouchstart="touchstart">
+          {{item.text}}
+      </article>
+
+  </section>
+</div>

@@ -1,0 +1,28 @@
+/**index.wxss**/
+
+.container {
+    padding: 15px 17px;
+    position: fixed;
+}
+
+.card-container {
+    position: relative;
+    height: 100%;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px #d8d8d8;
+    text-align: center;
+    transition: .5s;
+    background: #fff;
+}
+
+.card-place-holder {
+    position: static;
+    color: #d8d8d8;
+}
