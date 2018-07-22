@@ -1,6 +1,16 @@
 /**index.wxss**/
 
 .container {
-    
+    padding: 20px 17px;
 }
 
+header {
+    font-size: 14px;
+    font-weight: 700;
+    color: #999;
+}
+
+.navigator {
+    font-size: 16px;
+    color: #555;
+}

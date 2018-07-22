@@ -25,7 +25,7 @@ Page({
             },
             {
                 id: 'dd44',
-                text: '卡片四',
+                text: '左滑<-- 卡片四 -->右滑',
                 animationData: {}
             }
         ],
