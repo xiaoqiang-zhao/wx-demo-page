@@ -1,7 +1,7 @@
 /**index.wxss**/
 
 .container {
-    padding: 15px 17px;
+    padding: 15px 17px 25px;
     position: fixed;
 }
 
@@ -20,6 +20,22 @@
     text-align: center;
     transition: .5s;
     background: #fff;
+}
+
+/* 第二和第三张卡缩小 */
+.card:nth-last-of-type(2) {
+    transform: scale(0.9, 1);
+    top: 5px;
+}
+
+.card:nth-last-of-type(3) {
+    transform: scale(0.8, 1);
+    top: 10px;
+}
+
+/* 第三张卡后的卡片隐藏不渲染 */
+.card:nth-last-of-type(n + 4) {
+    display: none;
 }
 
 .card-place-holder {

@@ -6,5 +6,9 @@ const app = getApp();
 let animation;
 Page({
     data: {},
-    onLoad() {}
+    onLoad() {
+        wx.navigateTo({
+            url: '/pages/slide-card/index'
+        });
+    }
 });

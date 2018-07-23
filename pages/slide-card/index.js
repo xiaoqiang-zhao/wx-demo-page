@@ -29,12 +29,15 @@ Page({
                 animationData: {}
             }
         ],
-        slideClass: '',
-        // left | right
-        slideType: '',
         slideStardEvent: {}
     },
     onLoad() {},
+
+    /**
+     * 滑动开始
+     *
+     * @param {Object} e 事件对象
+     */
     touchstart(e) {
         this.setData({
             slideStardEvent: e
@@ -45,17 +48,28 @@ Page({
             delay: 0
         });
     },
+
+    /**
+     * 滑动中，通过计算滑动距离来设置卡片位置达到动画效果
+     *
+     * @param {Object} e 事件对象
+     */
     touchmove(e) {
         const translate = this.getTranslate(e);
-        // 左右滑动时给点倾斜角度
-        let rotate = [0, 15, -15][translate.type];
 
+        // 左右滑动时给点倾斜角度
         animation.rotate(translate.x * 0.09).translate(translate.x, translate.y).step();
 
         this.setData({
             [`slideList[${this.data.slideList.length - 1}].animationData`]: animation.export()
         });
     },
+
+    /**
+     * 滑动结束
+     *
+     * @param {Object} e 事件对象
+     */
     touchend(e) {
         const translate = this.getTranslate(e);
         let rotate;
@@ -81,6 +95,13 @@ Page({
             });
         }, 300);
     },
+
+    /**
+     * 封装滑动事件产生的偏移数据
+     *
+     * @param {Object} e 事件对象
+     * @return {Object} 偏移数据
+     */
     getTranslate(e) {
         let translateX = e.changedTouches[0].clientX - this.data.slideStardEvent.changedTouches[0].clientX;
         let translateY = e.changedTouches[0].clientY - this.data.slideStardEvent.changedTouches[0].clientY;
