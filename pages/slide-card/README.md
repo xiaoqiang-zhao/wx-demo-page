@@ -39,3 +39,11 @@ wx.createAnimation({
 - 0: 左右滑动不超过 30px;
 - 1: 左滑动超过 30px;
 - 2: 右滑动超过 30px。
+
+为了禁止滑动时整个页面上下和左右移动，使用和绝对定位来固定卡片：
+
+```css
+.container {
+    position: fixed;
+}
+```
