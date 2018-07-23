@@ -1,5 +1,5 @@
 <!--index.wxml-->
 <div class="container">
     <header>场景列表:</header>
-    <navigator class="navigator" url="/pages/slide-card/index">滑动卡片</navigator>
+    <navigator class="navigator" url="/pages/slide-card/index">左滑右滑卡片</navigator>
 </div>

@@ -79,8 +79,16 @@ Page({
         }
         else {
             translate.x = 400;
+
+            setTimeout(() => {
+                // 移除数据
+                this.data.slideList.pop();
+                this.setData({
+                    slideList: this.data.slideList
+                });
+            }, 300);
         }
-        translate.x = [0, 400, -400][translate.type];
+        translate.x = [0, -400, 400][translate.type];
         animation.rotate(rotate).translate(translate.x, translate.y).step({
             duration: 300
         });
@@ -88,12 +96,6 @@ Page({
         this.setData({
             [`slideList[${this.data.slideList.length - 1}].animationData`]: animation.export()
         });
-        this.data.slideList.pop();
-        setTimeout(() => {
-            this.setData({
-                slideList: this.data.slideList
-            });
-        }, 300);
     },
 
     /**
@@ -107,11 +109,11 @@ Page({
         let translateY = e.changedTouches[0].clientY - this.data.slideStardEvent.changedTouches[0].clientY;
 
         let type = 0;
-        // 右滑大于零，左滑小于零
-        if (translateX > 10) {
+        // 左滑小于零，右滑大于零
+        if (translateX < -30) {
             type = 1;
         }
-        else if (translateX < -10) {
+        else if (translateX > 30) {
             type = 2;
         }
         else {
