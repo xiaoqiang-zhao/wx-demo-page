@@ -1,6 +1,6 @@
-# 左滑右滑卡片 + 按钮
+# 系统 tabBar
 
-> 此场景是 “左滑右滑卡片” 的增强版，为了引导用户加一些按钮是常见的一种方案。
+> 系统提供了导航，吸顶和吸底可配置。
 
 ## 交互
 
@@ -8,11 +8,62 @@
 
 ## 功能
 
-- 滑动动画；
-- 多张卡重叠 3D 效果；
-- 滑动结果回调；
-- 卡片全部滑完后“见底”提示。
+- tabBar 吸顶吸底配置；
+- 图标配置；
+- 2 -5 个图标。
 
 ## 二次开发
 
-面对宽高比不同的手机，卡片类页面的布局是需要花一番心思设计的，难点在于不像普通列表那样可以无限向下排列，需要考虑不同高宽比情况下的图文的比例，
+配置在 app.json 中，代码示例：
+
+```json
+"tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#555",
+    "selectedColor": "#f77738",
+    "borderStyle": "white",
+    "list": [
+        {
+            "pagePath": "pages/tab-bar/home",
+            "iconPath": "images/home.png",
+            "selectedIconPath": "images/home-selected.png",
+            "text": "首页"
+        },
+        {
+            "pagePath": "pages/tab-bar/mine",
+            "iconPath": "images/mine.png",
+            "selectedIconPath": "images/mine-selected.png",
+            "text": "我的"
+        }
+    ]
+}
+```
+
+官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/config.html
+
+注意点：
+
+切换 tab 中的页面时使用 `switchTab` 方法，切换非 tab 页面时使用 `navigateTo` 方法；
+
+```js
+// 这里需要非 tabBar 的页面的路径
+wx.navigateTo({
+    url: '/pages/no-tab-bar/index'
+});
+
+// 如果是 tabBar 的页面用这个
+wx.switchTab({
+    url: '/pages/tab-bar/index'
+});
+```
+
+使用 `navigator` 组件的时候也要有区别
+
+```html
+<navigator class="navigator" url="/pages/no-tab-bar/index">非tabBar页面</navigator>
+<navigator class="navigator" open-type="switchTab" url="/pages/tab-bar/home">tabBar页面</navigator>
+```
+
+如果页面被配置在了 tabBar 中，那么在此页面呈现的时候显示 tabBar，否则不显示；
+
+图标必须是图片，字体图标不被配置支持。

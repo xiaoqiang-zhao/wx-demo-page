@@ -2,4 +2,6 @@
 <div class="container">
     <header>场景列表:</header>
     <navigator class="navigator" url="/pages/slide-card/index">左滑右滑卡片</navigator>
+    <navigator class="navigator" url="/pages/slide-card-btn/index">左滑右滑卡片 + 按钮</navigator>
+    <navigator class="navigator" open-type="switchTab" url="/pages/tab-bar/home">系统tabBar</navigator>
 </div>
