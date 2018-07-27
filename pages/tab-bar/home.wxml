@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<div class="container">
+    底部导航示例页：home
+</div>

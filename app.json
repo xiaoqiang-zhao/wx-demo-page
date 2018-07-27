@@ -1,13 +1,36 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/slide-card/index",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#409eff",
-    "navigationBarTitleText": "微信小程序场景",
-    "navigationBarTextStyle":"#fff"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/slide-card/index",
+        "pages/slide-card-btn/index",
+        "pages/tab-bar/home",
+        "pages/tab-bar/mine",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#409eff",
+        "navigationBarTitleText": "微信小程序场景",
+        "navigationBarTextStyle": "#fff"
+    },
+    "tabBar": {
+        "backgroundColor": "#fff",
+        "color": "#555",
+        "selectedColor": "#f77738",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/tab-bar/home",
+                "iconPath": "images/home.png",
+                "selectedIconPath": "images/home-selected.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/tab-bar/mine",
+                "iconPath": "images/mine.png",
+                "selectedIconPath": "images/mine-selected.png",
+                "text": "我的"
+            }
+        ]
+    }
 }
